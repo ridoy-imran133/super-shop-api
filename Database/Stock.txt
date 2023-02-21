@@ -1,0 +1,16 @@
+CREATE TABLE [Stock](
+		"SId" [nvarchar](256) NOT NULL,
+		"ProductCode" numeric NOT NULL,
+		"OutletCode" [nvarchar](32) NOT NULL,
+		"Quantity" numeric NOT NULL,
+		"QtyTypeCode" [nvarchar](32) NOT NULL,
+		"IsActive" [nvarchar](2) NULL,
+		"IsDelete" [nvarchar](2) NULL,
+		"CreatedBy" [nvarchar](64) NULL,
+		"CreatedDate" DATETIME NULL,
+		"ModifiedBy" [nvarchar](64) NULL,
+		"ModifiedDate" DATETIME NULL,
+		CONSTRAINT PK_STOCK PRIMARY KEY ("SId"),
+		CONSTRAINT FK_PRODUCT FOREIGN KEY ("ProductCode")
+		REFERENCES [dbo].[Product]("ProductCode")
+)

@@ -1,0 +1,9 @@
+CREATE TABLE [ProductImage](
+		"Location" [nvarchar](32) NOT NULL,
+		"ProductId" int NOT NULL,
+		"IsPrimary" [nvarchar](2) NULL,
+		"IsActive" [nvarchar](2) NULL,
+		"IsDelete" [nvarchar](2) NULL,
+		"UploadDate" DATETIME NULL,
+		CONSTRAINT PK_ProductImage PRIMARY KEY ("Location")
+)

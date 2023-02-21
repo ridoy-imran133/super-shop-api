@@ -1,0 +1,13 @@
+CREATE TABLE [Outlet](
+		"OutletCode" [nvarchar](32) NOT NULL,
+		"OutletName" [nvarchar](128) NOT NULL,
+		"Address" [nvarchar](128) NULL,
+		"Mobile" [nvarchar](128) NULL,
+		"IsActive" [nvarchar](2) NULL,
+		"IsDelete" [nvarchar](2) NULL,
+		"CreatedBy" [nvarchar](64) NULL,
+		"CreatedDate" DATETIME NULL,
+		"ModifiedBy" [nvarchar](64) NULL,
+		"ModifiedDate" DATETIME NULL,
+		CONSTRAINT PK_OUTLET PRIMARY KEY ("OutletCode")
+)

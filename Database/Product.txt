@@ -1,0 +1,16 @@
+CREATE TABLE [Product](
+		"ProductCode" int NOT NULL,
+		"ProductName" [nvarchar](128) NOT NULL,
+		"CatCode" [nvarchar](32) NOT NULL,
+		"SubCatCode" [nvarchar](32) NOT NULL,
+		"BrandCode" [nvarchar](32) NOT NULL,
+		"ItemCode" [nvarchar](32) NOT NULL,
+		"QtyTypeCode" [nvarchar](32) NOT NULL,
+		"IsActive" [nvarchar](2) NULL,
+		"IsDelete" [nvarchar](2) NULL,
+		"CreatedBy" [nvarchar](64) NULL,
+		"CreatedDate" DATETIME NULL,
+		"ModifiedBy" [nvarchar](64) NULL,
+		"ModifiedDate" DATETIME NULL,
+		CONSTRAINT PK_PRODUCT PRIMARY KEY ("ProductCode")
+)
