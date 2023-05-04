@@ -56,6 +56,7 @@ namespace SuperShop.Controllers
                 //var otdata = Newtonsoft.Json.Linq.JObject.Parse(obj.ToString());
                 //string pi = otdata["ProductInfo"] != null ? otdata["ProductInfo"].ToString() : string.Empty;
                 //ProductDTO data = JsonConvert.DeserializeObject<ProductDTO>(pi);
+                //ProductDTO data = JsonConvert.DeserializeObject<ProductDTO>(pi);
 
                 ProductDTO products = ObjectValueConversion.SingleValue<ProductDTO>("ProductInfo", obj);
 
