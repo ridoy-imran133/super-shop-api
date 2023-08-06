@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace SuperShop.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("[controller]")]
     [ApiController]
     public class ProductController : ControllerBase

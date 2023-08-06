@@ -63,5 +63,37 @@ namespace SuperShop.Controllers
             return Ok();
 
         }
+
+        [HttpGet]
+        [Route("GetUserProfile/{userId}/{token}")]
+        public async Task<IActionResult> GetUserProfile(string userId, string token)
+        {
+            UserProfile profile = new UserProfile();
+            var genurl = ApplicationConstant.SecurityAPI + "User/UserProfile?username=" + userId;
+
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            try
+            {
+                var httpResponse = await httpClient.GetAsync(genurl);
+                if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    dynamic sAccess = JsonConvert.DeserializeObject<Object>(await httpResponse.Content.ReadAsStringAsync());
+                    Object sv = sAccess.profile;
+                    profile = JsonConvert.DeserializeObject<UserProfile>(sv.ToString());
+                    return Ok(new
+                    {
+                        profile = profile
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Invalid Token.");
+            }
+            return Ok();
+
+        }
     }
 }

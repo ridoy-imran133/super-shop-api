@@ -12,21 +12,16 @@ namespace SuperShop.Entities
     {
         [Key]
         public string TrId { get; set; }
-        public string StockId { get; set; }
-        public string OutletId { get; set; }
         public DateTime Date { get; set; }
-        public double Quantity { get; set; }
-        public string QuantityType { get; set; }
-        public double TotalAmount { get; set; }
-        public double TotalTax { get; set; }
-        public double TotalVat { get; set; }
-        public int ProductCount { get; set; }
+        public float DiscountParcent { get; set; }
+        public float FlatDiscount { get; set; }
+        public float DiscountAmount { get; set; }
+        public float GrandTotal { get; set; }
         public string PaymentType { get; set; }
+        public float ColllectedAmount { get; set; }
+        public float ChangeAmount { get; set; }
         public string CustomerId { get; set; }
         public string UserId { get; set; }
-        public double PayAmount { get; set; }
-        public double ReturnAmount { get; set; }
-        public double PaidAmount { get; set; }
-        public List<TransactionWiseProduct> products { get; set; }
+        public string OutletCode { get; set; }
     }
 }

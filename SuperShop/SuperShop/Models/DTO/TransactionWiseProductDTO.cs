@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SuperShop.Entities
+namespace SuperShop.Models.DTO
 {
-    public class TransactionWiseProduct
+    public class TransactionWiseProductDTO
     {
-        public string TrId { get; set; }
         public int ProductCode { get; set; }
-        public float PurchaseRate { get; set; }
-        public float SellingRate { get; set; }
+        public string ProductName { get; set; }
+        public int StockAvailable { get; set; }
         public float Quantity { get; set; }
+        public double Amount { get; set; }
+        public double SellingRate { get; set; }
+        public float PurchaseRate { get; set; }
         public string IsDiscountOn { get; set; }
         public float DiscountParcent { get; set; }
         public float DiscountAmount { get; set; }

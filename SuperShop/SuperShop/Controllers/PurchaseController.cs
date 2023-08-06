@@ -16,11 +16,12 @@ namespace SuperShop.Controllers
         [Route("save")]
         public async Task<IActionResult> Save(Transaction transaction)
         {
-            var response = await _IBrandService.SaveBrand(brand);
-            return Ok(new
-            {
-                response = response
-            });
+            //var response = await _IBrandService.SaveBrand(brand);
+            //return Ok(new
+            //{
+            //    response = response
+            //});
+            return Ok();
         }
     }
 }

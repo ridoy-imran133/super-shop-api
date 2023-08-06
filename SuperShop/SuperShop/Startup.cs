@@ -27,6 +27,7 @@ using System.Text.Json;
 using Newtonsoft.Json.Serialization;
 using SuperShop.Services.Interface.common;
 using SuperShop.Services.Implementation.common;
+using SuperShop.Services.Operation;
 
 namespace SuperShop
 {
@@ -95,6 +96,9 @@ namespace SuperShop
             services.AddScoped<IOutletRepository, OutletRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IQtyTypeRepository, QtyTypeRepository>();
+
+            //Operation
+            services.AddScoped<ISalesService, SalesService>();
 
         }
 

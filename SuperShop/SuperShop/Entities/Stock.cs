@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace SuperShop.Entities
 {
-    [Table("Stock")]
+    [Table("Stock", Schema = "Operation")]
     public class Stock
     {
         [Key]
         public string SId { get; set; }
-        public string ProductCode { get; set; }
+        public int ProductCode { get; set; }
         public string OutletCode { get; set; }
-        public string Quantity { get; set; }
-        public string QtyTypeCode { get; set; }
+        public int StockAvailable { get; set; }
         public string IsActive { get; set; }
         public string IsDelete { get; set; }
         public DateTime? CreatedDate { get; set; }

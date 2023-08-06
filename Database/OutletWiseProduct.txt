@@ -1,4 +1,4 @@
-CREATE TABLE [OutletWiseProduct](
+CREATE TABLE [Operation].[OutletWiseProduct](
 		"OutletCode" [nvarchar](32) NOT NULL,
 		"CatCode" [nvarchar](32) NULL,		
 		"SubCatCode" [nvarchar](32) NULL,
