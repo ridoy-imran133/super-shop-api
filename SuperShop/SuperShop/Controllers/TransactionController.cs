@@ -12,17 +12,22 @@ namespace SuperShop.Controllers
     [ApiController]
     public class TransactionController : ControllerBase
     {
-        
-        public TransactionController()
+        private readonly ITransactionService _ITransactionService;
+        public TransactionController(ITransactionService transactionService)
         {
-            
+            _ITransactionService = transactionService;
         }
 
         [HttpPost]
         [Route("save")]
         public async Task<IActionResult> Save(TransactionDTO transaction)
         {
-            return Ok();
+            //return Ok();
+            var response = await _ITransactionService.SaveTransaction(transaction);
+            return Ok(new
+            {
+                response = response
+            });
         }
     }
 }

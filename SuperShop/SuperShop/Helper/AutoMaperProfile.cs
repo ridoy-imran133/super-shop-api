@@ -30,6 +30,8 @@ namespace SuperShop.Helper
             CreateMap<StockHistoryDTO, StockHistory>();
             CreateMap<Transaction, TransactionDTO>();
             CreateMap<TransactionDTO, Transaction>();
+            CreateMap<TransactionWiseProduct, TransactionWiseProductDTO>();
+            CreateMap<TransactionWiseProductDTO, TransactionWiseProduct>();
         }
     }
 }

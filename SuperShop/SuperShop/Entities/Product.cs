@@ -18,8 +18,8 @@ namespace SuperShop.Entities
         public string BrandCode { get; set; }
         //public string ItemCode { get; set; }
         public string QtyTypeCode { get; set; }
-        public float PurchaseRate { get; set; }
-        public float SellingRate { get; set; }
+        public double PurchaseRate { get; set; }
+        public double SellingRate { get; set; }
         public string IsActive { get; set; }
         public string IsDelete { get; set; }
         public DateTime? CreatedDate { get; set; }

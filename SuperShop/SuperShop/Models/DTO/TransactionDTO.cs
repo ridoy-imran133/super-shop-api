@@ -14,7 +14,7 @@ namespace SuperShop.Models.DTO
         public float FlatDiscount { get; set; }
         public float PaymentValue { get; set; }
         public string PaymentType { get; set; }
-        public float ColllectedAmount { get; set; }
+        public float CollectedAmount { get; set; }
         public float ChangeAmount { get; set; }
         public string CustomerId { get; set; }
         public string UserId { get; set; }

@@ -28,6 +28,8 @@ using Newtonsoft.Json.Serialization;
 using SuperShop.Services.Interface.common;
 using SuperShop.Services.Implementation.common;
 using SuperShop.Services.Operation;
+using SuperShop.Repository.Report;
+using SuperShop.Services.Report;
 
 namespace SuperShop
 {
@@ -99,6 +101,11 @@ namespace SuperShop
 
             //Operation
             services.AddScoped<ISalesService, SalesService>();
+            services.AddScoped<ITransactionService, TransactionService>();
+
+            //Report
+            services.AddScoped<ISalesReportService, SalesReportService>();
+            services.AddScoped<IInventoryReportService, InventoryReportService>();
 
         }
 
