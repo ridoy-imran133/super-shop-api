@@ -1,10 +1,12 @@
 CREATE TABLE [Operation].[TransactionWiseProduct](
-		"TrId" [nvarchar](256) NOT NULL,
+		"TrProductId" int NOT NULL,
+		"TrId" int NOT NULL,
 		"ProductCode" int NOT NULL,
 		[PurchaseRate] FLOAT,
 		[SellingRate] FLOAT,		
 		[Quantity] FLOAT,
 		"IsDiscountOn" [nvarchar](2) NULL,
 		"DiscountParcent" float NULL,		
-		"DiscountAmount" float NULL
+		"DiscountAmount" float NULL,
+		CONSTRAINT PK_TRANSACTIONWISEPRODUCT PRIMARY KEY ("TrProductId")
 );

@@ -11,5 +11,5 @@ CREATE TABLE [StockHistory](
 		"ModifiedBy" [nvarchar](64) NULL,
 		"ModifiedDate" DATETIME NULL,
 		CONSTRAINT FK_STOCK FOREIGN KEY ("SId")
-		REFERENCES [dbo].[Stock]("SId")
+		REFERENCES [Operation].[Stock]("SId")
 )

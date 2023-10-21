@@ -1,5 +1,5 @@
 CREATE TABLE [Operation].[Transaction](
-		"TrId" [nvarchar](256) NOT NULL,
+		"TrId" int NOT NULL,
 		"Date" DATETIME NULL,
 		"DiscountParcent" float NULL,
 		"FlatDiscount" float NULL,
