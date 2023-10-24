@@ -26,8 +26,7 @@ namespace SuperShop.Helper.Sequences
                 using (var reader = command.ExecuteReader())
                 {
                     reader.Read();
-                    int id = (int)reader.GetInt64(0);
-                    return id;
+                    return (int)reader.GetInt64(0);
                 }
             }
         }

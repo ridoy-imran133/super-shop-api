@@ -1,5 +1,5 @@
 CREATE TABLE [ProductImage](
-		"Location" [nvarchar](32) NOT NULL,
+		"Location" [nvarchar](450) NOT NULL, // The maximum key length for a clustered index is 900 bytes. The index 'PK_ProductImage' has maximum length of 1024 bytes.
 		"ProductId" int NOT NULL,
 		"IsPrimary" [nvarchar](2) NULL,
 		"IsActive" [nvarchar](2) NULL,

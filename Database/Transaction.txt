@@ -6,9 +6,10 @@ CREATE TABLE [Operation].[Transaction](
 		"DiscountAmount" float NULL,
 		"GrandTotal" float NULL,
 		"PaymentType" [nvarchar](16) NULL,
-		"ColllectedAmount" float NULL,
+		"CollectedAmount" float NULL,
 		"ChangeAmount" float NULL,
 		"CustomerId" [nvarchar](16) NULL,
 		"UserId" [nvarchar](64) NULL,
+		"OutletCode" [nvarchar](32) NULL,
 		CONSTRAINT PK_TRANSACTION PRIMARY KEY ("TrId")
 );

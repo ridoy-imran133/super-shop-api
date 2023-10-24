@@ -57,7 +57,7 @@ namespace SuperShop
 
             services.AddMvc()
                     .AddControllersAsServices();
-            
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>

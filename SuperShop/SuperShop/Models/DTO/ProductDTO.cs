@@ -14,5 +14,7 @@ namespace SuperShop.Models.DTO
         public string BrandCode { get; set; }
         public string ItemCode { get; set; }
         public string QtyTypeCode { get; set; }
+        public double PurchaseRate { get; set; }
+        public double SellingRate { get; set; }
     }
 }

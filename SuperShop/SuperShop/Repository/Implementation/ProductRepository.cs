@@ -51,6 +51,8 @@ namespace SuperShop.Repository.Implementation
                     product.BrandCode = pproduct.BrandCode;
                     //product.ItemCode = pproduct.ItemCode;
                     product.QtyTypeCode = pproduct.QtyTypeCode;
+                    product.PurchaseRate = pproduct.PurchaseRate;
+                    product.SellingRate = pproduct.SellingRate;
 
                     product.ModifiedBy = "system";
                     product.ModifiedDate = DateTime.Now;

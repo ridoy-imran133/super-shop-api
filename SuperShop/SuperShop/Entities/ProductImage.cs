@@ -13,6 +13,7 @@ namespace SuperShop.Entities
         [Key]
         public string Location { get; set; }
         public int ProductId { get; set; }
+        public string IsPrimary { get; set; }
         public string IsActive { get; set; }
         public string IsDelete { get; set; }
         public DateTime? UploadDate { get; set; }
