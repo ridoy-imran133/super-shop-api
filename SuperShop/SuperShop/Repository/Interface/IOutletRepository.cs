@@ -1,6 +1,7 @@
 ﻿using SuperShop.Entities;
 using SuperShop.Helper;
 using SuperShop.Models;
+using SuperShop.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace SuperShop.Repository.Interface
         Task<Outlet> GetOutlet(string pOutletCode, SuperShopDBContext pContext);
         Task<ApiResponseModel> SaveOutlet(Outlet poutlet, SuperShopDBContext pContext);
         Task<Outlet> Delete(string pOutletCode, SuperShopDBContext pContext);
+        Task<List<List<OutletWiseProductDTO>>> GetOutletWiseProducts(string pOutletCode, SuperShopDBContext pContext);
     }
 }

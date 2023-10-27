@@ -11,6 +11,7 @@ namespace SuperShop.Repository.Interface
     public interface IProductRepository
     {
         Task<List<Product>> GetAllProduct(SuperShopDBContext pContext);
+        Task<List<Product>> GetCATAllProduct(SuperShopDBContext pContext);
         Task<Product> GetProduct(int pProductCode, SuperShopDBContext pContext);
         Task<ApiResponseModel> SaveProduct(Product pbrand, List<UploadFileModel> uploadfiles, SuperShopDBContext pContext);
         Task<Product> Delete(int pProductCode, SuperShopDBContext pContext);

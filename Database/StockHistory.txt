@@ -1,15 +1,9 @@
 CREATE TABLE [StockHistory](
-		"Date" DATETIME NOT NULL,
-		"SId" [nvarchar](256) NOT NULL,
-		"DailyStock" numeric NOT NULL,
+		"SHId" int NOT NULL,
+		"ProductCode" int NOT NULL,
+		"OutletCode" [nvarchar](32) NOT NULL,
 		"StockIn" numeric NULL,
-		"QuantityType" [nvarchar](32) NULL,
-		"IsActive" [nvarchar](2) NULL,
-		"IsDelete" [nvarchar](2) NULL,
 		"CreatedBy" [nvarchar](64) NULL,
 		"CreatedDate" DATETIME NULL,
-		"ModifiedBy" [nvarchar](64) NULL,
-		"ModifiedDate" DATETIME NULL,
-		CONSTRAINT FK_STOCK FOREIGN KEY ("SId")
-		REFERENCES [Operation].[Stock]("SId")
+CONSTRAINT PK_STOCKHISTORY PRIMARY KEY ("SHId")
 )

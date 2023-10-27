@@ -13,5 +13,6 @@ namespace SuperShop.Services.Interface
         Task<ApiResponseModel> GetOutlet(String pOutletCode);
         Task<ApiResponseModel> SaveOutlet(OutletDTO pOutlet);
         Task<ApiResponseModel> DeleteOutlet(String pOutletCode);
+        Task<List<List<OutletWiseProductDTO>>> GetOutletWiseProducts(string pOutletCode);
     }
 }

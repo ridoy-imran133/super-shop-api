@@ -11,19 +11,20 @@ using System.Threading.Tasks;
 
 namespace SuperShop.Services.Operation
 {
-    public interface ISalesService
+    public interface IOperationsService
     {
         Task<ApiResponseModel> SearchProduct(int pProductCode);
+        Task<ApiResponseModel> SaveOutletWiseProducts(List<List<OutletWiseProductDTO>> products, string outletcode);
     }
-    public class SalesService : ISalesService
+    public class OperationsService : IOperationsService
     {
-        private readonly ISalesRepository _ISalesRepository;
+        private readonly IOperationsRepository _IOperationsRepository;
         private readonly IUploadedFileService _IUploadedFileService;
         private readonly IMapper _IMapper;
 
-        public SalesService(IUploadedFileService uploadedFileService, IMapper iMapper)
+        public OperationsService(IUploadedFileService uploadedFileService, IMapper iMapper)
         {
-            _ISalesRepository = new SalesRepository();
+            _IOperationsRepository = new OperationsRepository();
             _IUploadedFileService = uploadedFileService;
             _IMapper = iMapper;
         }
@@ -34,7 +35,7 @@ namespace SuperShop.Services.Operation
             {
                 using (var _context = new SuperShopDBContext())
                 {
-                    apiResponse.ResponseData = await _ISalesRepository.SaleProduct(pProductCode, _context);
+                    apiResponse.ResponseData = await _IOperationsRepository.SaleProduct(pProductCode, _context);
                     apiResponse.ResponseCode = StaticValue.SuccessCode;
                     apiResponse.ResponseMessage = "Product Fetch Successfull";
                 }
@@ -43,6 +44,24 @@ namespace SuperShop.Services.Operation
             {
                 apiResponse.ResponseCode = StaticValue.Unauthorized;
                 apiResponse.ResponseMessage = ex.Message;
+            }
+            return apiResponse;
+        }
+
+        public async Task<ApiResponseModel> SaveOutletWiseProducts(List<List<OutletWiseProductDTO>> products, string outletcode)
+        {
+            ApiResponseModel apiResponse = new ApiResponseModel();
+            try
+            {
+                
+                using (var _context = new SuperShopDBContext())
+                {
+                    apiResponse = await _IOperationsRepository.SaveOutletWiseProducts(products, outletcode, _context);
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
             return apiResponse;
         }

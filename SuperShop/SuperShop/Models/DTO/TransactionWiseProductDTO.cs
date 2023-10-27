@@ -9,7 +9,7 @@ namespace SuperShop.Models.DTO
     {
         public int ProductCode { get; set; }
         public string ProductName { get; set; }
-        public int StockAvailable { get; set; }
+        public decimal StockAvailable { get; set; }
         public float Quantity { get; set; }
         public double Amount { get; set; }
         public double SellingRate { get; set; }

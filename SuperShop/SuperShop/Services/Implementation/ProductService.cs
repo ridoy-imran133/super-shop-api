@@ -34,6 +34,35 @@ namespace SuperShop.Services.Implementation
             }
         }
 
+        public async Task<List<List<ProductDTO>>> GetcATAllProduct()
+        {
+            using (var _context = new SuperShopDBContext())
+            {
+                var val = _IMapper.Map<List<ProductDTO>>(await _IProductRepository.GetAllProduct(_context));
+                var vendorwisecustomer = val
+                                            .GroupBy(u => u.CatCode)
+                                            .Select(grp => grp.ToList())
+                                            .ToList();
+                return vendorwisecustomer;
+            }
+        }
+
+        public async Task<Dictionary<string, List<ProductDTO>>> GetcATAllProductDataDic()    //List<List<ProductDTO>>
+        {
+            using (var _context = new SuperShopDBContext())
+            {
+                var val = _IMapper.Map<List<ProductDTO>>(await _IProductRepository.GetAllProduct(_context));
+                var vendorwisecustomer = val
+                                            .GroupBy(u => u.CatCode)
+                                            .Select(grp => grp.ToList())
+                                            .ToList();
+
+                var dataDictionary = val.GroupBy(item => item.CatCode)
+            .ToDictionary(group => group.Key, group => group.Select(item => item).ToList());
+                return dataDictionary;
+            }
+        }
+
         public async Task<ApiResponseModel> GetProduct(int pProductCode)
         {
             ApiResponseModel apiResponse = new ApiResponseModel();

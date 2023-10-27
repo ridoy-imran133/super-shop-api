@@ -36,6 +36,28 @@ namespace SuperShop.Controllers
         }
 
         [HttpGet]
+        [Route("getAllProductByCat")]
+        public async Task<IActionResult> getAllProductByCat()
+        {
+            var products = await _IProductService.GetcATAllProductDataDic();
+            return Ok(new
+            {
+                products = products
+            });
+        }
+
+        [HttpGet]
+        [Route("getAllProductByCatanother")]
+        public async Task<IActionResult> getAllProductByCatanother()
+        {
+            var products = await _IProductService.GetcATAllProduct();
+            return Ok(new
+            {
+                products = products
+            });
+        }
+
+        [HttpGet]
         [Route("getproduct/{productcode}")]
         public async Task<IActionResult> Getproduct(int productcode)
         {
@@ -89,6 +111,17 @@ namespace SuperShop.Controllers
             return Ok(new
             {
                 response = response
+            });
+        }
+
+        [HttpGet]
+        [Route("categoryWiseProduct")]
+        public async Task<IActionResult> GetCategoryWiseProduct()
+        {
+            var products = await _IProductService.GetAllProduct();
+            return Ok(new
+            {
+                products = products
             });
         }
     }

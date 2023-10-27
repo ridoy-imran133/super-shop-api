@@ -29,10 +29,12 @@ namespace SuperShop.Helper
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<QtyType> QtyType { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
-        //public virtual DbSet<StockHistory> StockHistory { get; set; }
+        public virtual DbSet<StockHistory> StockHistory { get; set; }
         public virtual DbSet<Transaction> Transaction { get; set; }
         public virtual DbSet<TransactionWiseProduct> TransactionWiseProduct { get; set; }
         public virtual DbSet<ProductImage> ProductImage { get; set; }
+
+        public virtual DbSet<OutletWiseProduct> OutletWiseProduct { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<ProductImage>().HasNoKey();

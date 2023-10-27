@@ -100,7 +100,7 @@ namespace SuperShop
             services.AddScoped<IQtyTypeRepository, QtyTypeRepository>();
 
             //Operation
-            services.AddScoped<ISalesService, SalesService>();
+            services.AddScoped<IOperationsService, OperationsService>();
             services.AddScoped<ITransactionService, TransactionService>();
 
             //Report

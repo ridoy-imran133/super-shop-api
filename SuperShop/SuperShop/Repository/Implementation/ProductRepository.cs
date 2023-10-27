@@ -17,6 +17,11 @@ namespace SuperShop.Repository.Implementation
             return pContext.Product.ToList();
         }
 
+        public async Task<List<Product>> GetCATAllProduct(SuperShopDBContext pContext)
+        {
+            return pContext.Product.ToList();
+        }
+
         public async Task<Product> GetProduct(int pProductCode, SuperShopDBContext pContext)
         {
             return pContext.Product.Where(x => x.ProductCode == pProductCode).FirstOrDefault();
@@ -81,6 +86,16 @@ namespace SuperShop.Repository.Implementation
             await pContext.SaveChangesAsync();
             return val;
         }
+
+        //public async Task<Product> Delete(int pProductCode, SuperShopDBContext pContext)
+        //{
+        //    var commonData = from t1 in pContext.Product
+        //                     join t2 in pContext.Out on t1.ID equals t2.ID
+        //                     select t1;
+        //    pContext.Product.Remove(val);
+        //    await pContext.SaveChangesAsync();
+        //    return val;
+        //}
 
         public async Task<bool> SaveProductImage(List<UploadFileModel> uploadfiles, int productid, SuperShopDBContext pContext)
         {

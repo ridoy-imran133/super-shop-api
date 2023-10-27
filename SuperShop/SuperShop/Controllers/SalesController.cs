@@ -11,17 +11,17 @@ namespace SuperShop.Controllers
     [ApiController]
     public class SalesController : ControllerBase
     {
-        private readonly ISalesService _ISalesService;
-        public SalesController(ISalesService salesService)
+        private readonly IOperationsService _IOperationsService;
+        public SalesController(IOperationsService operationsService)
         {
-            _ISalesService = salesService;
+            _IOperationsService = operationsService;
         }
 
         [HttpGet]
         [Route("saleProduct/{pcode}")]
         public async Task<IActionResult> SearchProduct(string pcode)
         {
-            var product = await _ISalesService.SearchProduct(int.Parse(pcode));
+            var product = await _IOperationsService.SearchProduct(int.Parse(pcode));
             return Ok(new
             {
                 product = product

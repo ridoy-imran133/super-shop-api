@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using SuperShop.Models.DTO;
 using SuperShop.Services.Interface;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SuperShop.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("[controller]")]
     [ApiController]
     public class OutletController : ControllerBase
@@ -64,5 +65,26 @@ namespace SuperShop.Controllers
                 response = response
             });
         }
+
+        //[HttpGet]
+        //[Route("getProductsByOutlet/{outletcode}")]
+        //public async Task<IActionResult> GetOutletWiseProducts(string outletcode)
+        //{
+        //    var outletwiseProducts = await _IOutletService.GetOutletWiseProducts(outletcode);
+        //    return Ok(new
+        //    {
+        //        outletwiseProducts = outletwiseProducts
+        //    });
+        //}
+
+        //[HttpPost]
+        //[Route("saveProducts")]
+        //public async Task<IActionResult> saveProducts(object BusinessData)
+        //{
+        //    var businessData = Newtonsoft.Json.Linq.JObject.Parse(BusinessData.ToString());
+        //    string objData = businessData["products"].ToString();
+        //    var res = JsonConvert.DeserializeObject<List<List<OutletWiseProductDTO>>>(objData);
+        //    return Ok();
+        //}
     }
 }

@@ -1,12 +1,14 @@
 CREATE TABLE [Operation].[OutletWiseProduct](
+		"Id" int NOT NULL,
 		"OutletCode" [nvarchar](32) NOT NULL,
 		"CatCode" [nvarchar](32) NULL,		
 		"SubCatCode" [nvarchar](32) NULL,
-		"ProductCode" numeric NULL,
+		"ProductCode" int NULL,
 		"IsActive" [nvarchar](2) NULL,
 		"IsDelete" [nvarchar](2) NULL,
 		"CreatedBy" [nvarchar](64) NULL,
 		"CreatedDate" DATETIME NULL,
 		"ModifiedBy" [nvarchar](64) NULL,
-		"ModifiedDate" DATETIME NULL
+		"ModifiedDate" DATETIME NULL,
+CONSTRAINT PK_PRODUCT PRIMARY KEY ("Id")
 )
