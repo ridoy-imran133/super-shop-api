@@ -72,33 +72,6 @@ namespace SuperShop.Repository.Implementation
             pContext.Outlet.Remove(val);
             await pContext.SaveChangesAsync();
             return val;
-        }
-
-        public async Task<List<List<OutletWiseProductDTO>>> GetOutletWiseProducts(string pOutletCode, SuperShopDBContext pContext)
-        {
-            return ((from a in pContext.Product
-                     join b in pContext.OutletWiseProduct on a.ProductCode equals b.ProductCode
-                     join c in pContext.Category on b.CatCode equals c.CatCode
-                     where b.OutletCode == pOutletCode
-                     select new OutletWiseProductDTO
-                     {
-                         CatCode = a.CatCode,
-                         CatName = c.CategoryName,
-                         ProductCode = a.ProductCode,
-                         ProductName = a.ProductName,
-                         IsAvailable = true,
-                     }).ToList().Concat((from d in pContext.Product.Where(a => !pContext.OutletWiseProduct.Any(b => a.ProductCode == b.ProductCode && b.OutletCode == pOutletCode))
-                                         join e in pContext.Category on d.CatCode equals e.CatCode
-                                         select new OutletWiseProductDTO
-                                         {
-                                             CatCode = d.CatCode,
-                                             CatName = e.CategoryName,
-                                             ProductCode = d.ProductCode,
-                                             ProductName = d.ProductName,
-                                             IsAvailable = false,
-                                         }).ToList()).ToList()).GroupBy(u => u.CatCode)
-                                            .Select(grp => grp.ToList())
-                                            .ToList();
-        }
+        }        
     }
 }

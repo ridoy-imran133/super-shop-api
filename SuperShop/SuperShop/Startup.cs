@@ -30,6 +30,7 @@ using SuperShop.Services.Implementation.common;
 using SuperShop.Services.Operation;
 using SuperShop.Repository.Report;
 using SuperShop.Services.Report;
+using SuperShop.Services.Customer;
 
 namespace SuperShop
 {
@@ -106,6 +107,9 @@ namespace SuperShop
             //Report
             services.AddScoped<ISalesReportService, SalesReportService>();
             services.AddScoped<IInventoryReportService, InventoryReportService>();
+
+            //Operation
+            services.AddScoped<ICustProductService, CustProductService>();
 
         }
 

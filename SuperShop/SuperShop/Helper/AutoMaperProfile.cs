@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using SuperShop.Entities;
+using SuperShop.Models.Customer;
 using SuperShop.Models.DTO;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace SuperShop.Helper
             CreateMap<OutletDTO, Outlet>();
             CreateMap<Product, ProductDTO>();
             CreateMap<ProductDTO, Product>();
+            CreateMap<Product, CustProductDTO>();
+            CreateMap<CustProductDTO, Product>();
             CreateMap<QtyType, QtyTypeDTO>();
             CreateMap<QtyTypeDTO, QtyType>();
             CreateMap<Stock, StockDTO>();

@@ -7,10 +7,11 @@ namespace SuperShop.Models.DTO
 {
     public class StockDTO
     {
-        public string SId { get; set; }
-        public string ProductCode { get; set; }
+        public int ProductCode { get; set; }
+        public string ProductName { get; set; }
         public string OutletCode { get; set; }
-        public string Quantity { get; set; }
-        public string QtyTypeCode { get; set; }
+        public string CatName { get; set; }
+        public decimal StockAvailable { get; set; }
+        public decimal StockIn { get; set; }
     }
 }

@@ -69,7 +69,7 @@ namespace SuperShop.Controllers
         public async Task<IActionResult> GetUserProfile(string userId, string token)
         {
             UserProfile profile = new UserProfile();
-            var genurl = ApplicationConstant.SecurityAPI + "User/UserProfile?username=" + userId;
+            var genurl = ApplicationConstant.SecurityAPI + "User/UserProfile?pUserName=" + userId;
 
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);

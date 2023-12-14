@@ -90,12 +90,6 @@ namespace SuperShop.Services.Implementation
             return apiResponse;
         }
 
-        public async Task<List<List<OutletWiseProductDTO>>> GetOutletWiseProducts(string pOutletCode)
-        {
-            using (var _context = new SuperShopDBContext())
-            {
-                return await _IOutletRepository.GetOutletWiseProducts(pOutletCode, _context);
-            }            
-        }
+        
     }
 }

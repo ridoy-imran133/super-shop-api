@@ -27,7 +27,7 @@ namespace SuperShop.Controllers
         [Route("getProducts/{outletcode}")]
         public async Task<IActionResult> GetOutletWiseProducts(string outletcode)
         {
-            var outletwiseProducts = await _IOutletService.GetOutletWiseProducts(outletcode);
+            var outletwiseProducts = await _IOperationsService.GetOutletWiseProducts(outletcode);
             return Ok(new
             {
                 outletwiseProducts = outletwiseProducts
@@ -41,6 +41,31 @@ namespace SuperShop.Controllers
             var products = JsonConvert.DeserializeObject<List<List<OutletWiseProductDTO>>>(businessData["products"].ToString());
             var outletcode = businessData["outlet"].ToString();
             var response = await _IOperationsService.SaveOutletWiseProducts(products, outletcode);
+            return Ok(new
+            {
+                response = response
+            });
+        }
+
+        [HttpGet]
+        [Route("getStocks/{outletcode}")]
+        public async Task<IActionResult> GetOutletWiseProductStock(string outletcode)
+        {
+            var outletWiseProductStock = await _IOperationsService.GetOutletWiseProductStock(outletcode);
+            return Ok(new
+            {
+                outletWiseProductStock = outletWiseProductStock
+            });
+        }
+
+        [HttpPost]
+        [Route("saveStock")]
+        public async Task<IActionResult> saveStock(object BusinessData)
+        {
+            var businessData = Newtonsoft.Json.Linq.JObject.Parse(BusinessData.ToString());
+            var stocks = JsonConvert.DeserializeObject<List<List<StockDTO>>>(businessData["stocks"].ToString());
+            var outletcode = businessData["outlet"].ToString();
+            var response = await _IOperationsService.SaveOutletWiseProductsStock(stocks, outletcode);
             return Ok(new
             {
                 response = response
