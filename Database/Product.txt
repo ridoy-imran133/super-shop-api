@@ -1,6 +1,7 @@
 CREATE TABLE [Product](
 		"ProductCode" int NOT NULL,
 		"ProductName" [nvarchar](128) NOT NULL,
+		"MenuName" [nvarchar](128) NULL,
 		"CatCode" [nvarchar](32) NOT NULL,
 		"SubCatCode" [nvarchar](32) NOT NULL,
 		"BrandCode" [nvarchar](32) NOT NULL,

@@ -35,6 +35,8 @@ namespace SuperShop.Helper
             CreateMap<TransactionDTO, Transaction>();
             CreateMap<TransactionWiseProduct, TransactionWiseProductDTO>();
             CreateMap<TransactionWiseProductDTO, TransactionWiseProduct>();
+            CreateMap<CustomerMenuDTO, CustomerMenu>();
+            CreateMap<CustomerMenu, CustomerMenuDTO>();
         }
     }
 }

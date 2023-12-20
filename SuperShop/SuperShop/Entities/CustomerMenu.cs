@@ -7,20 +7,15 @@ using System.Threading.Tasks;
 
 namespace SuperShop.Entities
 {
-    [Table("Product")]
-    public class Product
+    [Table("CustomerMenu", Schema = "Customer")]
+    public class CustomerMenu
     {
         [Key]
-        public int ProductCode { get; set; }
-        public string ProductName { get; set; }
-        public string CatCode { get; set; }
-        public string SubCatCode { get; set; }
-        public string BrandCode { get; set; }
-        //public string ItemCode { get; set; }
-        public string QtyTypeCode { get; set; }
-        public double PurchaseRate { get; set; }
-        public double SellingRate { get; set; }
+        public string MenuCode { get; set; }
         public string MenuName { get; set; }
+        public string URL { get; set; }
+        public string Icon { get; set; }
+        public string Sequence { get; set; }
         public string IsActive { get; set; }
         public string IsDelete { get; set; }
         public DateTime? CreatedDate { get; set; }

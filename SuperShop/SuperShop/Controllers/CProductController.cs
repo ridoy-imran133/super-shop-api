@@ -19,10 +19,10 @@ namespace SuperShop.Controllers
         }
 
         [HttpGet]
-        [Route("getAllProduct")]
-        public async Task<IActionResult> GetAllProduct()
+        [Route("getAllProduct/{name}")]
+        public async Task<IActionResult> GetAllProduct(string name)
         {
-            var products = await _ICustProductService.GetAllProduct();
+            var products = await _ICustProductService.GetAllProduct(name);
             return Ok(new
             {
                 products = products
@@ -37,6 +37,17 @@ namespace SuperShop.Controllers
             return Ok(new
             {
                 products = products
+            });
+        }
+
+        [HttpGet]
+        [Route("getMenus")]
+        public async Task<IActionResult> GetMenus()
+        {
+            var menus = await _ICustProductService.GetMenus();
+            return Ok(new
+            {
+                menus = menus
             });
         }
     }
