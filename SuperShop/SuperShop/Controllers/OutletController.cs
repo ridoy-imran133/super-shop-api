@@ -66,6 +66,17 @@ namespace SuperShop.Controllers
             });
         }
 
+        [HttpGet]
+        [Route("test")]
+        public async Task<IActionResult> test()
+        {
+            
+            return Ok(new
+            {
+                test = "test"
+            });
+        }
+
         //[HttpGet]
         //[Route("getProductsByOutlet/{outletcode}")]
         //public async Task<IActionResult> GetOutletWiseProducts(string outletcode)
