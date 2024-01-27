@@ -31,6 +31,7 @@ using SuperShop.Services.Operation;
 using SuperShop.Repository.Report;
 using SuperShop.Services.Report;
 using SuperShop.Services.Customer;
+using SuperShop.Repository.Customer;
 
 namespace SuperShop
 {
@@ -99,6 +100,7 @@ namespace SuperShop
             services.AddScoped<IOutletRepository, OutletRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IQtyTypeRepository, QtyTypeRepository>();
+            services.AddScoped<ICustomerTransactionRepository, CustomerTransactionRepository>();
 
             //Operation
             services.AddScoped<IOperationsService, OperationsService>();
@@ -108,8 +110,9 @@ namespace SuperShop
             services.AddScoped<ISalesReportService, SalesReportService>();
             services.AddScoped<IInventoryReportService, InventoryReportService>();
 
-            //Operation
+            //Customer
             services.AddScoped<ICustProductService, CustProductService>();
+            services.AddScoped<ICustTransactionService, CustTransactionService>();
 
         }
 

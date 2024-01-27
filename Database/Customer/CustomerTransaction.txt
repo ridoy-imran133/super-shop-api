@@ -1,0 +1,12 @@
+CREATE TABLE [Customer].[CustomerTransaction](
+		"CustTransactionCode" int NOT NULL,
+		"CustCode" int NOT NULL,
+		"PaymentMethod" [nvarchar](32) NULL,
+		"IsTransactionComplete" [nvarchar](2) NULL,
+		"TotalAmount" FLOAT,
+		"PayAmount" FLOAT,
+		"ShipmentCharge" FLOAT,
+		"CouponCode" [nvarchar](128) NULL,
+		"DiscountAmount" FLOAT,
+		CONSTRAINT PK_CustomerTransaction PRIMARY KEY ("CustTransactionCode")
+);

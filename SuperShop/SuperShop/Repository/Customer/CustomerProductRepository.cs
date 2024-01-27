@@ -21,7 +21,15 @@ namespace SuperShop.Repository.Customer
     {
         public async Task<List<Product>> GetAllProduct(string name, SuperShopDBContext pContext)
         {
-            return pContext.Product.Where(x => x.MenuName == name).ToList();
+            try
+            {
+                var v = pContext.Product.Where(x => x.MenuName == name).ToList();
+                return v;
+            } catch(Exception e)
+            {
+                throw e.InnerException;
+            }
+            
         }
 
         public async Task<List<Product>> GetAllProductByCAT(SuperShopDBContext pContext)

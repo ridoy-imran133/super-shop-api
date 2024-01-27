@@ -14,5 +14,8 @@ namespace SuperShop.Helper.Sequences
         public static string OutletWiseProduct_seq { get; } = "OutletWiseProduct_seq";
         public static string Stock_seq { get; } = "Stock_seq";
         public static string StockHistory_seq { get; } = "StockHistory_seq";
+        public static string Cust_Transaction_seq { get; } = "Cust_Transaction_seq";
+        public static string Customer_seq { get; } = "Customer_seq";
+        public static string Customer_order_seq { get; } = "Customer_order_seq";
     }
 }

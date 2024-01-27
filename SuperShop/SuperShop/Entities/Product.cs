@@ -19,6 +19,8 @@ namespace SuperShop.Entities
         //public string ItemCode { get; set; }
         public string QtyTypeCode { get; set; }
         public double PurchaseRate { get; set; }
+        public string DiscountType { get; set; } = "N" ;
+        public double? DiscountAmount { get; set; }
         public double SellingRate { get; set; }
         public string MenuName { get; set; }
         public string IsActive { get; set; }

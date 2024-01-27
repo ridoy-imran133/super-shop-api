@@ -1,0 +1,14 @@
+CREATE TABLE [Customer].[Customer](
+		"CustCode" int NOT NULL,
+		"FullName" [nvarchar](128) NULL,
+		"UserName" [nvarchar](64) NULL,
+		"Password" [nvarchar](256) NULL,
+		"PhoneNumber" [nvarchar](16) NULL,
+		"Email" [nvarchar](128) NULL,
+		"Gender" [nvarchar](2) NULL,
+		"DateOfBirth" DATETIME NULL,
+		"Address" [nvarchar](512) NULL,
+		"AdditionalInformation" [nvarchar](512) NULL,
+		"District" [nvarchar](32) NULL,
+		CONSTRAINT PK_Customer PRIMARY KEY ("CustCode")
+);

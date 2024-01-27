@@ -35,6 +35,9 @@ namespace SuperShop.Helper
         public virtual DbSet<ProductImage> ProductImage { get; set; }
         public virtual DbSet<OutletWiseProduct> OutletWiseProduct { get; set; }
         public virtual DbSet<CustomerMenu> CustomerMenu { get; set; }
+        public virtual DbSet<Customer2> Customer { get; set; }
+        public virtual DbSet<CustomerTransaction> CustomerTransaction { get; set; }
+        public virtual DbSet<CustomerOrderDetails> CustomerOrderDetails { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<ProductImage>().HasNoKey();
