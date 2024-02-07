@@ -73,34 +73,15 @@ namespace SuperShop.Controllers
         //public async Task<IActionResult> SaveorUpdate(ProductDTO product)
         public async Task<IActionResult> SaveorUpdate(Object obj)
         {
-            try
+            ProductDTO products = ObjectValueConversion.SingleValue<ProductDTO>("ProductInfo", obj);
+
+            List<UploadFileModel> uploadFile = ObjectValueConversion.MultiValue<UploadFileModel>("UploadFile", obj);
+
+            var response = await _IProductService.SaveProduct(products, uploadFile);
+            return Ok(new
             {
-                //var otdata = Newtonsoft.Json.Linq.JObject.Parse(obj.ToString());
-                //string pi = otdata["ProductInfo"] != null ? otdata["ProductInfo"].ToString() : string.Empty;
-                //ProductDTO data = JsonConvert.DeserializeObject<ProductDTO>(pi);
-                //ProductDTO data = JsonConvert.DeserializeObject<ProductDTO>(pi);
-
-                ProductDTO products = ObjectValueConversion.SingleValue<ProductDTO>("ProductInfo", obj);
-
-                List<UploadFileModel> uploadFile = ObjectValueConversion.MultiValue<UploadFileModel>("UploadFile", obj);
-
-                var response = await _IProductService.SaveProduct(products, uploadFile);
-            }
-            catch(Exception ex){
-
-            }
-            //var businessData = Newtonsoft.Json.Linq.JObject.Parse(obj.ToString());
-            //string objData = businessData["PumpInfo"].ToString();
-            //string objData2 = businessData["UploadFile"].ToString();
-            //var res = JsonConvert.DeserializeObject(objData);
-            //var res2 = JsonConvert.DeserializeObject(objData2);
-
-            //var response = await _IProductService.SaveProduct(res);
-            //return Ok(new
-            //{
-            //    response = response
-            //});
-            return Ok();
+                response = response
+            });
         }
 
         [HttpGet]

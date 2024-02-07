@@ -30,6 +30,7 @@ namespace SuperShop.Repository.Implementation
         public async Task<ApiResponseModel> SaveProduct(Product pproduct, List<UploadFileModel> uploadfiles, SuperShopDBContext pContext)
         {
             ApiResponseModel response = new ApiResponseModel();
+            bool saveProductImages = false;
             try
             {
                 Product product = pContext.Product.Where(x => x.ProductCode == pproduct.ProductCode).FirstOrDefault();
@@ -46,7 +47,7 @@ namespace SuperShop.Repository.Implementation
                     response.ResponseCode = StaticValue.SuccessCode;
                     response.ResponseMessage = "Saved Successfully";
                     response.ResponseData = pproduct;
-                    await SaveProductImage(uploadfiles, pproduct.ProductCode, pContext);
+                    saveProductImages = await SaveProductImage(uploadfiles, pproduct.ProductCode, pContext);
                 }
                 else
                 {
@@ -59,6 +60,10 @@ namespace SuperShop.Repository.Implementation
                     product.PurchaseRate = pproduct.PurchaseRate;
                     product.SellingRate = pproduct.SellingRate;
 
+                    product.DiscountAmount = pproduct.DiscountAmount;
+                    product.DiscountType = pproduct.DiscountType;
+                    product.MenuName = pproduct.MenuName;
+
                     product.ModifiedBy = "system";
                     product.ModifiedDate = DateTime.Now;
 
@@ -67,7 +72,7 @@ namespace SuperShop.Repository.Implementation
                     response.ResponseData = product;
                     response.ResponseCode = StaticValue.SuccessCode;
                     response.ResponseMessage = "Updated Successfully";
-                    await SaveProductImage(uploadfiles, product.ProductCode, pContext);
+                    saveProductImages = await SaveProductImage(uploadfiles, product.ProductCode, pContext);
                 }
 
             }
@@ -103,7 +108,10 @@ namespace SuperShop.Repository.Implementation
             ProductImage pi = new ProductImage();
             try
             {
-                foreach(UploadFileModel fi in uploadfiles)
+                var imagesList = pContext.ProductImage.Where(x => x.ProductId == productid).ToList();
+                pContext.ProductImage.RemoveRange(imagesList);
+                pContext.SaveChanges();
+                foreach (UploadFileModel fi in uploadfiles)
                 {
                     pi = new ProductImage();
                     pi.Location = fi.FileLocation;
@@ -111,6 +119,7 @@ namespace SuperShop.Repository.Implementation
                     pi.IsActive = "Y";
                     pi.IsDelete = "N";
                     pi.UploadDate = DateTime.Now;
+                    pi.IsPrimary = fi.IsPrimary ? "Y" : "N";
 
                     await pContext.AddAsync(pi);
                     await pContext.SaveChangesAsync();

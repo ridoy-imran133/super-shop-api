@@ -12,6 +12,7 @@ namespace SuperShop.Helper
         public string FileType { get; set; }
         public long FileSize { get; set; }
         public string FileLocation { get; set; }
+        public bool IsPrimary { get; set; }
         public byte[] FileByte { get; set; }
     }
 }

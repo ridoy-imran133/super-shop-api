@@ -17,5 +17,10 @@ namespace SuperShop.Models.DTO
         public double PurchaseRate { get; set; }
         public double SellingRate { get; set; }
         public double productQuantity { get; set; }
+        public string MenuName { get; set; }
+        public string DiscountType { get; set; }
+        public double DiscountAmount { get; set; }
+
+
     }
 }
