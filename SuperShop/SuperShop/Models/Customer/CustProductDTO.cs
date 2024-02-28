@@ -16,5 +16,9 @@ namespace SuperShop.Models.Customer
         public string QtyTypeCode { get; set; }
         public double SellingRate { get; set; }
         public bool isBlurImage { get; set; } = false;
+        public string DiscountType { get; set; } = "N";
+        public double? DiscountAmount { get; set; }
+        public string? Location { get; set; }
+        public string image { get; set; }
     }
 }

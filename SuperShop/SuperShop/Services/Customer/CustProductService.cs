@@ -36,7 +36,7 @@ namespace SuperShop.Services.Customer
         {
             using (var _context = new SuperShopDBContext())
             {
-                return _IMapper.Map<List<CustProductDTO>>(await _ICustomerProductRepository.GetAllProduct(name, _context));
+                return await _ICustomerProductRepository.GetAllProduct(name, _context);
             }
         }
 
